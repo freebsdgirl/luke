@@ -1,9 +1,0 @@
-db_url: !secret mysql_uri
-purge_keep_days: 90
-exclude:
-    domains:
-      - automation
-      - script
-      - scene
-      - zwave
-      
