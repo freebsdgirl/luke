@@ -1,0 +1,90 @@
+# package files make multisensors easier to manage.
+
+binary_sensor:
+  - platform: template
+    sensors:
+      # create motion sensor from value of burglar node
+      bathroom_motion:
+        value_template: "{{ is_state('sensor.bathroom_multisensor_burglar', '8') }}"
+      # create tamper sensor from value of burglar node
+      bathroom_multisensor_tamper:
+        value_template: "{{ is_state('sensor.bathroom_multisensor_burglar', '3') }}"
+
+sensor:
+  - platform: template
+    sensors:
+      # create battery sensor from zwave attributes
+      bathroom_multisensor_battery:
+        value_template: >-
+          {% if states.zwave.bathroom_multisensor %}
+            {{ states.zwave.bathroom_multisensor.attributes.battery_level }}
+          {% else %}
+            unknown
+          {% endif %}
+        icon_template: >-
+          {% set battery_level = states('sensor.bathroom_multisensor_battery')|int('unknown') %}
+          {% set battery_round = (battery_level|int / 10)|int * 10 %}
+          {% if battery_level == 'unknown' %}
+            mdi:battery-unknown
+          {% else %}
+            {% if battery_round >= 100 %}
+              mdi:battery
+            {% elif battery_round > 0 %}
+              mdi:battery-{{ battery_round }}
+            {% else %}
+              mdi:battery-alert
+            {% endif %}
+          {% endif %}
+
+homeassistant:
+  customize:
+    # hidden devices
+    zwave.bathroom_multisensor:
+      friendly_name: Bathroom Multisensor
+      hidden: true
+    binary_sensor.bathroom_multisensor:
+      friendly_name: Bathroom Multisensor Sensor
+      hidden: true
+    sensor.bathroom_multisensor_alarm_level:
+      friendly_name: Bathroom Multisensor Alarm Level
+      hidden: true
+    sensor.bathroom_multisensor_alarm_type:
+      friendly_name: Bathroom Multisensor Alarm Type
+      hidden: true
+    sensor.bathroom_multisensor_burglar:
+      friendly_name: Bathroom Multisensor Burglar
+      hidden: true
+
+    # motion
+    binary_sensor.bathroom_motion:
+      friendly_name: Bathroom Motion 
+      device_class: motion
+
+    # tamper
+    binary_sensor.bathroom_multisensor_tamper:
+      friendly_name: Bathroom Multisensor Tamper
+      device_class: safety 
+
+    # battery
+    sensor.bathroom_multisensor_battery:
+      friendly_name: Bathroom Multisensor Battery
+      device_class: battery
+      unit_of_measurement: '%'
+
+    # humidity
+    sensor.bathroom_humidity:
+      friendly_name: Bathroom Humidity 
+      device_class: humidity
+      icon: mdi:water-percent
+
+    # luminance
+    sensor.bathroom_luminance:
+      friendly_name: Bathroom Luminance 
+      device_class: illuminance
+      icon: mdi:brightness-5
+
+    # temperature
+    sensor.bathroom_temperature:
+      friendly_name: Bathroom Temperature
+      device_class: temperature
+      unit_of_measurement: '°F'

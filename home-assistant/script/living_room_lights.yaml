@@ -1,0 +1,201 @@
+# moved this out of scenes because i was running into rate limit problems.
+# had to switch from hue groups to hue scenes. lifx was also somemtimes returning
+# an error, and putting a few delays in here and there seemed to help a bit.
+
+morning_lights_transition:
+  sequence:
+    - service: light.lifx_set_state
+      data:
+        entity_id: light.living_room_table_lamp
+        brightness: 1
+        rgb_color: [255, 182, 238]
+    - service: light.lifx_set_state
+      data:
+        entity_id: light.living_room_beam
+        brightness: 1
+        rgb_color: [255, 180, 78]
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Living Room"
+        scene_name: "Early Morning"
+    - service: light.turn_on
+      data:
+        entity_id: light.living_room_nanoleaf
+        brightness: 2
+    - delay:
+        seconds: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.living_room_floor_lamp
+        brightness: 254
+        rgb_color: [244, 216, 255]
+        transition: 120
+    - service: light.lifx_set_state
+      data:
+        entity_id: light.living_room_beam
+        brightness: 175
+        rgb_color: [255, 180, 78]
+        transition: 2400
+        power: true
+    - service: light.lifx_set_state
+      data:
+        entity_id: light.living_room_table_lamp
+        brightness: 255
+        rgb_color: [255, 182, 238]
+        transition: 120
+        power: true
+    - service: light.turn_on
+      data:
+        entity_id: light.living_room_nanoleaf
+        brightness: 50
+        transition: 120
+    - delay:
+        seconds: 90
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Living Room"
+        scene_name: "Morning"
+
+
+morning_lights:
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: light.living_room_nanoleaf
+        brightness: 50
+    - service: light.lifx_set_state
+      data:
+        entity_id: light.living_room_beam
+        brightness: 150
+        rgb_color: [255, 180, 78]
+        power: true
+    - service: light.lifx_set_state
+      data:
+        entity_id: light.living_room_table_lamp
+        brightness: 255
+        rgb_color: [255, 182, 238]
+        power: true
+    - service: light.turn_on
+      data:
+        entity_id: light.living_room_floor_lamp
+        brightness: 254
+        rgb_color: [244, 216, 255]
+        transition: 120
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Living Room"
+        scene_name: "Morning"
+
+
+daytime_lights:
+  sequence:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Living Room"
+        scene_name: "Daytime"
+    - service: light.lifx_effect_colorloop
+      data:
+        entity_id: light.living_room_beam
+        brightness: 100
+        period: 5
+        change: 20
+    - service: light.lifx_set_state
+      data:
+        entity_id: light.living_room_table_lamp
+        brightness: 255
+        color_temp: 153
+        power: true
+    - service: light.turn_on
+      data:
+        entity_id: light.living_room_nanoleaf
+        brightness: 120
+        effect: "Northern Lights"
+    - service: light.turn_on
+      data:
+        entity_id: light.living_room_floor_lamp
+        brightness: 254
+        color_temp: 214
+
+
+evening_lights:
+  sequence:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Living Room"
+        scene_name: "Evening"
+    - service: light.lifx_effect_colorloop
+      data:
+        entity_id: light.living_room_beam
+        brightness: 25
+        period: 10
+        change: 20
+    - service: light.lifx_set_state
+      data:
+        entity_id: light.living_room_table_lamp
+        brightness: 255
+        color_temp: 285
+        power: true
+    - service: light.turn_on
+      data:
+        entity_id: light.living_room_floor_lamp
+        brightness: 125
+        color_temp: 284
+    - service: light.turn_on
+      data:
+        entity_id: light.living_room_nanoleaf
+        brightness: 120
+        effect: "Dark Northern Lights"
+
+
+evening_dimmed_lights:
+  sequence:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Living Room"
+        scene_name: "Evening Dimmed"
+    - service: light.turn_on
+      data:
+        entity_id: light.living_room_nanoleaf
+        brightness_pct: 30
+        effect: "Dark Northern Lights"
+    - service: light.lifx_set_state
+      data:
+        entity_id: light.living_room_beam
+        brightness: 20
+        power: true
+    - service: light.lifx_set_state
+      data:
+        entity_id: light.living_room_table_lamp
+        brightness: 255
+        color_temp: 285
+        power: true
+    - service: light.turn_off
+      entity_id: light.living_room_floor_lamp
+
+
+bright_lights:
+  sequence:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Living Room"
+        scene_name: "Bright Cold White"
+
+
+osu_lights:
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: light.living_room_nanoleaf
+        brightness: 40
+        effect: "Streaking Notes"
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Living Room"
+        scene_name: "osu"
+    - service: light.turn_off
+      entity_id: light.living_room_floor_lamp
+    - service: light.turn_off
+      entity_id: light.living_room_beam
+    - service: light.turn_off
+      entity_id: light.living_room_table_lamp
+      

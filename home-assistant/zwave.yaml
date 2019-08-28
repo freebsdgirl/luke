@@ -1,0 +1,17 @@
+usb_path: /dev/ttyACM0
+device_config_glob:
+  sensor.zooz_*_exporting*:
+    ignored: true
+    polling_intensity: 0
+  sensor.*_sourcenodeid*:
+    ignored: true
+    polling_intensity: 0
+  sensor.*_power_management*:
+    ignored: true
+    polling_intensity: 0
+  sensor.zooz_*_interval*:
+    ignored: true
+    polling_intensity: 0
+  sensor.zooz_*_previous_reading*:
+    ignored: true
+    polling_intensity: 0

@@ -1,0 +1,5 @@
+name: Computer Monitors 
+entities:
+  - switch.desk_left_monitor
+  - switch.desk_center_monitor
+  - switch.desk_right_monitor

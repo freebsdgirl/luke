@@ -1,0 +1,26 @@
+# can't use the automatically generated group for all lights because it includes
+# a first gen samsung smartthings outlet.
+
+# do we want to move this to the light type instead of group? i seem to recall
+# having some issue with referencing hue groups under the light platform and a
+# group.
+
+# todo: maybe don't reference light groups and instead reference individual
+# bulbs as long as it's not a hue bulb. hue API limits :((((
+
+name: Every Light 
+entities:
+  - light.bedroom_lights          # home assistant light group
+  - light.bathroom                # hue room. could also use hue group
+                                  # 'bathroom mirror'
+  - light.living_room_lights      # platform: group.
+  - light.kitchen_lights          # a single non-hue zigbee switch *for now* 
+                                  # but soon we'll be adding a lightstrip to
+                                  # this room via the hue platform.
+  - light.dining_room             # hue room. could also use hue group 'dining
+                                  # room ceiling'
+  - light.hallway                 # hue room, but could also be referenced with
+                                  # hue group 'hallway ceiling'. we may want
+                                  # to move towards this soon as a non-hue
+                                  # light like another nanoleaf might be added
+                                  # to the hallway.

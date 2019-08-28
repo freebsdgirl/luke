@@ -1,0 +1,292 @@
+#####
+##### bathroom motion lighting
+#####
+
+# turn bathroom lights at 100% on if there is motion during the day
+- alias: bathroom lights (day)
+  trigger:
+    platform: state
+    entity_id: binary_sensor.bathroom_motion
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.motion_lights
+      state: 'on'
+    - condition: time
+      after: '06:00'
+      before: '01:00'
+    - condition: state
+      entity_id: sun.sun
+      state: 'above_horizon'
+  action:
+    service: light.turn_on
+    entity_id: light.bathroom
+    data:
+      brightness_pct: 100
+
+# turn bathroom lights at 70% on if there is motion at night
+- alias: bathroom lights (night)
+  trigger:
+    platform: state
+    entity_id: binary_sensor.bathroom_motion
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.motion_lights
+      state: 'on'
+    - condition: time
+      after: '15:00'
+      before: '01:00'
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    service: light.turn_on
+    entity_id: light.bathroom
+    data:
+      brightness_pct: 70
+
+# turn on one bathroom light at 10% on if there is motion during sleep hours
+- alias: bathroom lights (sleep)
+  trigger:
+    platform: state
+    entity_id: binary_sensor.bathroom_multisensor_motion
+    to: 'on'
+    from: 'off'
+  condition:
+    - condition: state
+      entity_id: input_boolean.motion_lights
+      state: 'on'
+    - condition: time
+      after: '01:00'
+      before: '06:00'
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    service: light.turn_on
+    entity_id: light.bathroom_mirror_1
+    data:
+      brightness_pct: 10
+
+# turn off bathroom lights after 5 minutes when no motion detected and the door is open
+- alias: bathroom lights off
+  trigger:
+    platform: state
+    entity_id: binary_sensor.bathroom_multisensor_motion
+    from: 'on'
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  condition:
+    - condition: state
+      entity_id: input_boolean.motion_lights
+      state: 'on'
+    - condition: state
+      entity_id: light.bathroom
+      state: 'on'
+    - condition: state
+      entity_id: binary_sensor.bathroom_door
+      state: 'on'
+  action:
+    service: light.turn_off
+    entity_id: light.bathroom
+
+#####
+##### kitchen motion lighting
+#####
+
+# turn on kitchen lights if there is motion in that room during the day
+- alias: kitchen lights
+  trigger:
+    platform: state
+    entity_id: binary_sensor.kitchen_motion
+    to: 'on'
+    from: 'off'
+  condition:
+    - condition: state
+      entity_id: input_boolean.motion_lights
+      state: 'on'
+    - condition: time
+      after: '07:00'
+      before: '01:00'
+  action:
+    service: light.turn_on
+    entity_id: light.kitchen_lights
+
+
+# turn off kitchen lights after 5 minutes when no motion detected
+- alias: kitchen lights off
+  trigger:
+    platform: state
+    entity_id: binary_sensor.kitchen_motion
+    from: 'on'
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  condition:
+    - condition: state
+      entity_id: input_boolean.motion_lights
+      state: 'on'
+    - condition: state
+      entity_id: light.kitchen_lights
+      state: 'on'
+  action:
+    service: light.turn_off
+    entity_id: light.kitchen_lights
+
+#####
+##### dining room motion lighting
+#####
+
+# turn dining room lights at 100% and kitchen lights on if there is motion during the day
+- alias: dining room lights (day)
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dining_room_motion
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.motion_lights
+      state: 'on'
+    - condition: time
+      after: '06:00'
+      before: '01:00'
+    - condition: state
+      entity_id: sun.sun
+      state: 'above_horizon'
+  action:
+    - service: light.turn_on
+      entity_id: light.dining_room
+      data:
+        brightness_pct: 100
+    - service: light.turn_on
+      entity_id: light.kitchen_lights
+
+# turn dining room lights on at 70% and kitchen lights on if there is motion at night
+- alias: dining room lights (night)
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dining_room_motion
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.motion_lights
+      state: 'on'
+    - condition: time
+      after: '15:00'
+      before: '01:00'
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    - service: light.turn_on
+      entity_id: light.dining_room
+      data:
+        brightness_pct: 70
+    - service: light.turn_on
+      entity_id: light.kitchen_lights
+
+# turn off dining room lights & kitchen lights after 5 minutes when no motion detected
+- alias: dining room lights off
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dining_room_motion
+    from: 'on'
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  condition:
+    - condition: state
+      entity_id: input_boolean.motion_lights
+      state: 'on'
+    - condition: state
+      entity_id: light.dining_room
+      state: 'on'
+  action:
+    - service: light.turn_off
+      entity_id: light.dining_room
+    - service: light.turn_off
+      entity_id: light.kitchen_lights
+
+#####
+##### hallway motion lighting
+#####
+
+# turn on hallway lights if there is motion in that room during the day
+- alias: hallway lights (day)
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hallway_motion
+    to: 'on'
+    from: 'off'
+  condition:
+    - condition: state
+      entity_id: input_boolean.motion_lights
+      state: 'on'
+    - condition: time
+      after: '06:00'
+      before: '01:00'
+    - condition: state
+      entity_id: sun.sun
+      state: 'above_horizon'
+  action:
+    service: light.turn_on
+    entity_id: light.hallway
+    data:
+      brightness_pct: 100
+
+# turn on hallway lights if there is motion in that room during the evening
+- alias: hallway lights (evening)
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hallway_motion
+    to: 'on'
+    from: 'off'
+  condition:
+    - condition: state
+      entity_id: input_boolean.motion_lights
+      state: 'on'
+    - condition: time
+      after: '06:00'
+      before: '01:00'
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    service: light.turn_on
+    entity_id: light.hallway
+    data:
+      brightness_pct: 70
+
+# turn off hallway lights after 1 minute when no motion detected
+- alias: hallway lights off
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hallway_motion
+    from: 'on'
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+  condition:
+    - condition: state
+      entity_id: input_boolean.motion_lights
+      state: 'on'
+    - condition: state
+      entity_id: light.hallway
+      state: 'on'
+  action:
+    service: light.turn_off
+    entity_id: light.hallway

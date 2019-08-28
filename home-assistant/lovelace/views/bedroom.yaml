@@ -1,0 +1,179 @@
+title: Bedroom
+badges: []
+cards:
+  - align_state: center
+    animate: true
+    color_thresholds:
+      - color: '#0064ff'
+        value: 60
+      - color: '#00a4ff'
+        value: 62
+      - color: '#00c4ff'
+        value: 64
+      - color: '#00e4ff'
+        value: 65
+      - color: '#00ffd0'
+        value: 66
+      - color: '#00ff83'
+        value: 67
+      - color: '#00ff5c'
+        value: 68
+      - color: '#00ff36'
+        value: 69
+      - color: '#00ff10'
+        value: 70
+      - color: '#17ff00'
+        value: 71
+      - color: '#3eff00'
+        value: 72
+      - color: '#65ff00'
+        value: 73
+      - color: '#b0ff00'
+        value: 74
+      - color: '#FFe600'
+        value: 75
+      - color: '#FFd200'
+        value: 76
+      - color: '#FFbe00'
+        value: 77
+      - color: '#FFaa00'
+        value: 78
+      - color: '#FF9600'
+        value: 79
+      - color: '#FF8200'
+        value: 80
+      - color: '#FF6400'
+        value: 81
+      - color: '#FF6400'
+        value: 82
+      - color: '#FF5a00'
+        value: 84
+      - color: '#FF3c00'
+        value: 86
+      - color: '#FF1e00'
+        value: 88
+      - color: '#FF0000'
+        value: 90
+    color_thresholds_transition: smooth
+    entities:
+      - entity: sensor.bedroom_temperature
+        state_adaptive_color: true
+    font_size: 120
+    font_size_header: 12
+    height: 75
+    hours_to_show: 12
+    points_per_hour: 2
+    show:
+      extrema: true
+      fill: fade
+      graph: line
+      icon_adaptive_color: false
+      labels: false
+      labels_secondary: false
+      name_adaptive_color: false
+    type: 'custom:mini-graph-card'
+  - cards:
+      - content: '## Lights'
+        type: markdown
+      - cards:
+          - entity: light.bedroom_ceiling
+            hold_action:
+              action: more-info
+            icon: 'mdi:ceiling-light'
+            icon_height: 150px
+            show_name: false
+            tap_action:
+              action: toggle
+            type: entity-button
+          - cards:
+              - entity: light.bedroom_ceiling_1
+                hold_action:
+                  action: more-info
+                icon_height: 61px
+                show_name: false
+                tap_action:
+                  action: toggle
+                type: entity-button
+              - entity: light.bedroom_ceiling_2
+                hold_action:
+                  action: more-info
+                icon_height: 61px
+                show_name: false
+                tap_action:
+                  action: toggle
+                type: entity-button
+            type: vertical-stack
+        type: horizontal-stack
+      - entity: light.bedroom_table_lamp
+        hold_action:
+          action: more-info
+        icon_height: 100px
+        show_name: false
+        tap_action:
+          action: toggle
+        type: entity-button
+      - entity: light.bed_lightstrip
+        hold_action:
+          action: more-info
+        icon_height: 100px
+        show_name: false
+        tap_action:
+          action: toggle
+        type: entity-button
+      - entity: light.bedroom_mirror
+        hold_action:
+          action: more-info
+        icon_height: 100px
+        show_icon: true
+        show_name: false
+        tap_action:
+          action: toggle
+        type: entity-button
+      - entity: light.bedroom_closet_ceiling
+        hold_action:
+          action: more-info
+        icon_height: 100px
+        show_name: false
+        tap_action:
+          action: toggle
+        type: entity-button
+    type: vertical-stack
+  - cards:
+      - entity: media_player.bedroom_sonos
+        type: media-control
+      - entity: media_player.bedroom_apple_tv
+        type: media-control
+    type: vertical-stack
+  #- cards:
+     # - content: '## Devices'
+    #    type: markdown
+     # - entities:
+     #     - entity: switch.bedroom_tv
+     #     - entity: switch.bedroom_siren_6
+     #     - entity: switch.bedroom_double_outlet_usb
+     #   show_header_toggle: true
+     #   title: Double Outlet
+      #  type: entities
+      #- entities:
+      #    - entity: switch.ps01_outlet1
+      #      name: Apple TV
+       #   - entity: switch.ps01_outlet2
+      #      name: TV LEDs
+      #    - entity: switch.ps01_outlet3
+      #     name: Wax Melter
+      #   - entity: switch.ps01_outlet4
+      #     name: Outlet 4 (Unused)
+      #   - entity: switch.ps01_usb
+      #     name: Hallway Camera
+      #  show_header_toggle: true
+      #  title: Power Strip
+      #  type: entities
+   # type: vertical-stack
+  - entity: switch.bedroom_air_conditioner
+    hold_action:
+      action: more-info
+    show_icon: true
+    show_name: true
+    tap_action:
+      action: toggle
+    type: entity-button

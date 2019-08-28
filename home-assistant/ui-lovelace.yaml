@@ -1,0 +1,33 @@
+title: Natural Born Fraggers
+resources:
+  - type: js
+    url: /local/cards/calendar-card.js
+  - type: js
+    url: /local/cards/button-entity-row.js
+  - type: js
+    url: /local/cards/light-entity-row.js
+  - type: js
+    url: /local/cards/light-entity-card.js
+  - type: module
+    url: /local/cards/circle-sensor-card.js
+  - type: js
+    url: /local/cards/flex-table-card.js
+  - type: js
+    url: /local/cards/tiles-card.js
+  - type: module
+    url: /local/cards/weather-card/weather-card.js
+  - type: module
+    url: /local/cards/mini-graph-card-bundle.js
+  - type: js
+    url: /local/cards/monster-card.js
+views: 
+  - !include /config/lovelace/views/home.yaml
+  - !include /config/lovelace/views/bathroom.yaml
+  - !include /config/lovelace/views/bedroom.yaml
+  - !include /config/lovelace/views/hallway.yaml
+  - !include /config/lovelace/views/living_room.yaml
+  - !include /config/lovelace/views/kitchen.yaml
+  - !include /config/lovelace/views/sensor_data.yaml
+  - !include /config/lovelace/views/automations.yaml
+  - !include /config/lovelace/views/all_power_devices.yaml
+  - !include /config/lovelace/views/monster_cards.yaml

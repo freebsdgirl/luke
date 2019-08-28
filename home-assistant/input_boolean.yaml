@@ -1,0 +1,9 @@
+# triggered by ifttt by withings
+in_bed:
+  name: In Bed
+  initial: off
+
+# Toggle the availability of motion based routines.
+motion_lights:
+  name: Motion Lights
+  initial: on

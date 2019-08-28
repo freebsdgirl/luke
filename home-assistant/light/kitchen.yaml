@@ -1,0 +1,15 @@
+# we're using a zigbee switch to control the lightswitch itself. that's great
+# and all, but it means it shows up as a switch.* type and not a light.*
+# type. this just creates a device so we can refer to it as a light.
+
+- name: Kitchen Ceiling
+  platform: switch
+  entity_id: switch.kitchen_light
+
+# because we're adding a lightstrip to this room soon, go ahead and create
+# a group that we can reference with everything. beats changing it all later.
+
+- name: Kitchen Lights
+  platform: group
+  entities:
+    - light.kitchen_ceiling

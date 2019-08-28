@@ -1,0 +1,6 @@
+- name: Bedroom Lights
+  platform: group
+  entities:
+    - light.bedroom                 # hue room (includes closet)
+    - light.bedroom_mirror          # zwave light strip
+    - light.bedroom_table_lamp      # zwave light bulb

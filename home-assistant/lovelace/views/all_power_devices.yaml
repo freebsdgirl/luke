@@ -1,0 +1,22 @@
+title: All Power Devices
+badges: []
+cards:
+  - type: 'custom:monster-card'
+    show_empty: false
+    card:
+      title: Power
+      type: history-graph
+    filter:
+      include:
+        - entity_id: '*_power'
+  - type: 'custom:monster-card'
+    show_empty: false
+    card:
+      title: Switches
+      type: entities
+    filter:
+      include:
+        - domain: switch
+      exclude:
+        - entity_id: 'switch.bedroom_wallmote_*'
+    

@@ -1,0 +1,5 @@
+- name: Work
+  icon: mdi:account-tie
+  latitude: !secret office_lat
+  longitude: !secret office_long
+  radius: 200

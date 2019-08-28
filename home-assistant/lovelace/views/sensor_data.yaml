@@ -1,0 +1,237 @@
+title: Sensor Data
+badges: []
+cards:
+  - cards:
+      - align_state: center
+        animate: true
+        color_thresholds_transition: smooth
+        entities:
+          - entity: sensor.bathroom_temperature
+            name: Bathroom
+            state_adaptive_color: true
+          - entity: sensor.bedroom_temperature
+            name: Bedroom
+            state_adaptive_color: true
+          - entity: sensor.dining_room_temperature
+            name: Dining Room
+            state_adaptive_color: true
+          - entity: sensor.hallway_temperature
+            name: Hallway
+            state_adaptive_color: true
+          - entity: sensor.living_room_temperature
+            name: Living Room
+            state_adaptive_color: true
+        hours_to_show: 24
+        name: Temperature
+        points_per_hour: 0.5
+        show:
+          extrema: true
+          fill: fade
+          graph: line
+          icon_adaptive_color: false
+          labels: true
+          name_adaptive_color: false
+          state: false
+        type: 'custom:mini-graph-card'
+      - align_state: center
+        animate: true
+        color_thresholds_transition: smooth
+        entities:
+          - entity: sensor.bathroom_humidity
+            name: Bathroom
+            state_adaptive_color: true
+        hours_to_show: 24
+        name: Humidity
+        points_per_hour: 0.5
+        show:
+          extrema: true
+          fill: fade
+          graph: line
+          icon_adaptive_color: false
+          labels: true
+          name_adaptive_color: false
+          state: false
+        type: 'custom:mini-graph-card'
+    type: vertical-stack
+  - cards:
+      - entities:
+          - entity: binary_sensor.bathroom_motion
+        hours_to_show: 2
+        title: Bathroom Multisensor
+        type: history-graph
+      - entities:
+          - entity: binary_sensor.bathroom_motion
+            name: Motion
+          - entity: binary_sensor.bathroom_multisensor_tamper
+            name: Tamper
+          - entity: sensor.bathroom_luminance
+            name: Luminance
+          - entity: sensor.bathroom_humidity
+            name: Humidity
+          - entity: sensor.bathroom_temperature
+            name: Temperature
+          - entity: sensor.bathroom_multisensor_battery
+            name: Battery
+        type: entities
+    type: vertical-stack
+  - cards:
+      - entities:
+          - entity: binary_sensor.bedroom_motion
+        hours_to_show: 2
+        title: Bedroom Multisensor
+        type: history-graph
+      - entities:
+          - entity: binary_sensor.bedroom_motion
+            name: Motion
+          - entity: sensor.bedroom_temperature
+            name: Temperature
+        type: entities
+    type: vertical-stack
+  - cards:
+      - entities:
+          - entity: binary_sensor.dining_room_motion
+        hours_to_show: 2
+        title: Dining Room Multisensor
+        type: history-graph
+      - entities:
+          - entity: binary_sensor.dining_room_motion
+            name: Motion
+          - entity: binary_sensor.dining_room_multisensor_tamper
+            name: Tamper
+          - entity: sensor.dining_room_luminance
+            name: Luminance
+          - entity: sensor.dining_room_humidity
+            name: Humidity
+          - entity: sensor.dining_room_temperature
+            name: Temperature
+          - entity: sensor.dining_room_multisensor_battery
+            name: Battery
+        type: entities
+    type: vertical-stack
+  - cards:
+      - entities:
+          - entity: binary_sensor.hallway_motion
+        hours_to_show: 2
+        title: Hallway Multisensor
+        type: history-graph
+      - entities:
+          - entity: binary_sensor.hallway_motion
+            name: Motion
+          - entity: binary_sensor.hallway_multisensor_tamper
+            name: Tamper
+          - entity: sensor.hallway_luminance
+            name: Luminance
+          - entity: sensor.hallway_humidity
+            name: Humidity
+          - entity: sensor.hallway_temperature
+            name: Temperature
+          - entity: sensor.hallway_multisensor_battery
+            name: Battery
+        type: entities
+    type: vertical-stack
+  - cards:
+      - entities:
+          - entity: binary_sensor.kitchen_motion
+        hours_to_show: 2
+        title: Kitchen Multisensor
+        type: history-graph
+      - entities:
+          - entity: binary_sensor.kitchen_motion
+            name: Motion
+          - entity: binary_sensor.kitchen_multisensor_tamper
+            name: Tamper
+          - entity: sensor.kitchen_luminance
+            name: Luminance
+          - entity: sensor.kitchen_humidity
+            name: Humidity
+          - entity: sensor.kitchen_temperature
+            name: Temperature
+          - entity: sensor.kitchen_multisensor_battery
+            name: Battery
+        type: entities
+    type: vertical-stack
+  - cards:
+      - entities:
+          - entity: binary_sensor.living_room_east_motion
+        hours_to_show: 2
+        title: Living Room East Multisensor
+        type: history-graph
+      - entities:
+          - entity: binary_sensor.living_room_east_motion
+            name: Motion
+          - entity: binary_sensor.living_room_east_multisensor_tamper
+            name: Tamper
+          - entity: sensor.living_room_east_luminance
+            name: Luminance
+          - entity: sensor.living_room_east_humidity
+            name: Humidity
+          - entity: sensor.living_room_east_temperature
+            name: Temperature
+          - entity: sensor.living_room_east_multisensor_battery
+            name: Battery
+        type: entities
+    type: vertical-stack
+  - cards:
+      - entities:
+          - entity: binary_sensor.living_room_west_motion
+        hours_to_show: 2
+        title: Living Room West Multisensor
+        type: history-graph
+      - entities:
+          - entity: binary_sensor.living_room_west_motion
+            name: Motion
+          - entity: binary_sensor.living_room_west_multisensor_tamper
+            name: Tamper
+          - entity: sensor.living_room_west_luminance
+            name: Luminance
+          - entity: sensor.living_room_west_humidity
+            name: Humidity
+          - entity: sensor.living_room_west_temperature
+            name: Temperature
+          - entity: sensor.living_room_west_multisensor_battery
+            name: Battery
+        type: entities
+    type: vertical-stack
+  - cards:
+      - entities:
+          - entity: binary_sensor.desk_motion
+        hours_to_show: 2
+        title: Desk Multisensor
+        type: history-graph
+      - entities:
+          - entity: binary_sensor.desk_motion
+            name: Motion
+          - entity: binary_sensor.desk_multisensor_tamper
+            name: Tamper
+          - entity: sensor.desk_luminance
+            name: Luminance
+          - entity: sensor.desk_temperature
+            name: Temperature
+          - entity: sensor.desk_multisensor_battery
+            name: Battery
+        type: entities
+    type: vertical-stack
+  - cards:
+      - entities:
+          - entity: binary_sensor.workbench_motion
+        hours_to_show: 2
+        title: Workbench Multisensor
+        type: history-graph
+      - entities:
+          - entity: binary_sensor.workbench_motion
+            name: Motion
+          - entity: binary_sensor.workbench_multisensor_tamper
+            name: Tamper
+          - entity: sensor.workbench_luminance
+            name: Luminance
+          - entity: sensor.workbench_humidity
+            name: Humidity
+          - entity: sensor.workbench_temperature
+            name: Temperature
+          - entity: sensor.workbench_ultraviolet
+            name: Ultraviolet
+          - entity: sensor.workbench_multisensor_battery
+            name: Battery
+        type: entities
+    type: vertical-stack
+panel: false

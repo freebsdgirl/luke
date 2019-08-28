@@ -1,0 +1,39 @@
+# package files make multisensors easier to manage.
+
+# sometimes this sensor returns in C, other times it returns in F.
+# use a template to do basic sanity checking on the reported temp/convert to F.
+sensor:
+  - platform: template
+    sensors:
+      bedroom_temperature:
+        value_template: >-
+          {% if states('sensor.bedroom_multisensor_temperature') | int < 45 %}
+            {{ states('sensor.bedroom_multisensor_temperature') | float * 9 / 5 + 32  }}
+          {% else %}
+            {{ states('sensor.bedroom_multisensor_temperature') }}
+          {% endif %}
+
+homeassistant:
+  customize:
+    # hidden devices
+    sensor.bedroom_multisensor_temperature:
+      friendly_name: Bedroom Multisensor Temperature
+      device_class: temperature
+      hidden: true
+
+    # motion
+    binary_sensor.bedroom_motion:
+      friendly_name: Bedroom Motion
+      device_class: motion
+
+    # battery
+    sensor.bedroom_multisensor_battery:
+      friendly_name: Bedroom Multisensor Battery
+      device_class: battery
+      unit_of_measurement: '%'
+  
+    # temperature
+    sensor.bedroom_temperature:
+      friendly_name: Bedroom Temperature
+      device_class: temperature
+      unit_of_measurement: '°F'

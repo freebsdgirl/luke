@@ -1,0 +1,544 @@
+##################################################
+#################### BATHROOM ####################
+##################################################
+
+
+############### contact sensors ###############
+
+### bathroom door
+binary_sensor.bathroom_door:
+  device_class: door
+  friendly_name: Bathroom Door
+binary_sensor.bathroom_door_acceleration:
+  friendly_name: Bathroom Door Acceleration
+  hidden: true
+sensor.bathroom_door_contact_battery:
+  friendly_name: Bathroom Door Contact Battery
+sensor.bathroom_door_temperature:
+  friendly_name: Bathroom Door Temperature
+  device_class: temperature
+
+
+############### outlets ###############
+
+### bathroom zooz double outlet
+switch.bathroom_double_outlet:
+  device_class: outlet
+  friendly_name: Bathroom Double Outlet
+sensor.bathroom_double_outlet_power:
+  device_class: power
+  friendly_name: Bathroom Double Outlet Power
+switch.bathroom_echo_dot:
+  friendly_name: Bathroom Echo Dot Outlet
+  device_class: outlet
+  icon: mdi:usb
+switch.bathroom_toothbrush:
+  friendly_name: Bathroom Toothbrush Outlet
+  device_class: outlet
+  icon: mdi:power-plug
+sensor.bathroom_toothbrush_power:
+  friendly_name: Bathroom Toothbrush Power
+  device_class: power
+switch.bathroom_waterpik:
+  friendly_name: Bathroom Waterpik Outlet
+  device_class: outlet
+  icon: mdi:power-plug
+sensor.bathroom_waterpik_power:
+  friendly_name: Bathroom WSaterpik Power
+  device_class: power
+# hidden entities
+zwave.bathroom_double_outlet:
+  friendly_name: Bathroom Double Outlet
+  hidden: true
+sensor.bathroom_double_outlet_alarm_level:
+  friendly_name: Bathroom Double Outlet Alarm Level
+  hidden: true
+sensor.bathroom_double_outlet_alarm_type:
+  friendly_name: Bathroom Double Outlet Alarm Type
+  hidden: true
+sensor.bathroom_double_outlet_current:
+  friendly_name: Bathroom Double Outlet Current
+  hidden: true
+sensor.bathroom_double_outlet_energy:
+  friendly_name: Bathroom Double Outlet Energy
+  hidden: true
+sensor.bathroom_double_outlet_voltage:
+  friendly_name: Bathroom Double Outlet Voltage
+  hidden: true
+sensor.bathroom_toothbrush_current:
+  friendly_name: Bathroom Toothbrush Current
+  hidden: true
+sensor.bathroom_toothbrush_energy:
+  friendly_name: Bathroom Toothbrush Energy
+  hidden: true
+sensor.bathroom_toothbrush_voltage:
+  friendly_name: Bathroom Toothbrush Voltage
+  hidden: true
+sensor.bathroom_waterpik_current:
+  friendly_name: Bathroom Waterpik Current
+  hidden: true
+sensor.bathroom_waterpik_energy:
+  friendly_name: Bathroom Waterpik Energy
+  hidden: true
+sensor.bathroom_waterpik_voltage:
+  friendly_name: Bathroom Waterpik Voltage
+  hidden: true
+
+
+############### switches ###############
+
+### 3rd reality zigbee lightswitch
+switch.bathroom_fan:
+  friendly_name: Bathroom Fan
+  icon: mdi:light-switch
+
+
+############### lights ###############
+
+### hue
+light.bathroom:                   # room
+  icon: mdi:shower
+light.bathroom_mirror:            # group
+  icon: mdi:image-filter-frames
+  # icon: mdi:dresser
+light.bathroom_mirror_1:          # bulb
+  icon: mdi:track-light
+light.bathroom_mirror_2:          # bulb
+  icon: mdi:track-light
+  hidden: true
+light.bathroom_mirror_3:          # bulb
+  icon: mdi:track-light
+  hidden: true
+light.bathroom_mirror_4:          # bulb
+  icon: mdi:track-light
+  hidden: true
+
+
+#################################################
+#################### BEDROOM ####################
+#################################################
+
+
+############### contact sensors ###############
+
+### smartthings multisensor - bedroom door
+binary_sensor.bedroom_door:
+  device_class: door
+  friendly_name: Bedroom Door
+binary_sensor.bedroom_door_acceleration:
+  friendly_name: Bedroom Door Acceleration
+  hidden: true
+sensor.bedroom_door_contact_battery:
+  friendly_name: Bedroom Closet Door Battery
+sensor.bedroom_door_temperature:
+  friendly_name: Bedroom Door Temperature
+  device_class: temperature
+
+### smartthings multisensor - bedroom closet door
+binary_sensor.bedroom_closet_door:
+  device_class: door
+  friendly_name: Bedroom Closet Door
+binary_sensor.bedroom_closet_door_acceleration:
+  friendly_name: Bedroom Closet Door Acceleration
+  hidden: true
+sensor.bedroom_closet_door_contact_battery:
+  friendly_name: Bedroom Closet Door Contact Battery
+sensor.bedroom_closet_door_temperature:
+  friendly_name: Bedroom Closet Door Temperature
+
+
+############### outlets ###############
+
+### smartthings zigbee outlet
+switch.bedroom_air_conditioner:
+  friendly_name: Bedroom Air Conditioner Outlet
+
+### bedroom zooz double outlet
+switch.bedroom_double_outlet:
+  device_class: outlet
+  friendly_name: Bedroom Double Outlet
+  icon: mdi:power-plug
+sensor.bedroom_double_outlet_power:
+  friendly_name: Bedroom Double Outlet Power
+  device_class;: power
+switch.bedroom_tv:
+  device_class: outlet
+  friendly_name: Bedroom TV
+  icon: mdi:television-classic
+sensor.bedroom_tv_power:
+  device_class: power
+  friendly_name: Bedroom TV Power
+switch.bedroom_siren_6:
+  device_class: outlet
+  friendly_name: Bedroom Siren 6
+  icon: 'mdi:alarm-bell'
+sensor.bedroom_siren_6_power:
+  device_class: power
+  friendly_name: Bedroom Siren 6 Power
+switch.bedroom_double_outlet_usb:
+  device_class: outlet
+  friendly_name: Bedroom IR Controller
+  icon: mdi:remote
+# hidden entities
+zwave.bedroom_double_outlet:
+  hidden: true
+sensor.bedroom_double_outlet_alarm_level:
+  friendly_name: Bedroom Double Outlet Alarm Level
+  hidden: true 
+sensor.bedroom_double_outlet_alarm_type:
+  friendly_name: Bedroom Double Outlet Alarm Type
+  hidden: true 
+sensor.bedroom_double_outlet_current:
+  friendly_name: Bedroom Double Outlet Current
+  hidden: true
+sensor.bedroom_double_outlet_energy:
+  friendly_name: Bedroom Double Outlet Energy
+  hidden: true
+sensor.bedroom_double_outlet_voltage:
+  friendly_name: Bedroom Double Outlet Voltage
+  hidden: true
+sensor.bedroom_siren_6_current:
+  friendly_name: Bedroom Siren 6 Current
+  hidden: true
+sensor.bedroom_siren_6_energy:
+  friendly_name: Bedroom Siren 6 Energy
+  hidden: true
+sensor.bedroom_siren_6_voltage:
+  friendly_name: Bedroom Siren 6 Voltage
+  hidden: true
+sensor.bedroom_tv_current:
+  friendly_name: Bedroom TV Current
+  hidden: true
+sensor.bedroom_tv_energy:
+  friendly_name: Bedroom TV Energy
+  hidden: true
+sensor.bedroom_tv_voltage:
+  friendly_name: Bedroom TV Voltage
+  hidden: true
+
+
+############### lights ###############
+
+### light group for entire roomm
+light.bedroom_lights:
+  friendly_name: Bedroom Lights
+  icon: mdi:bed-empty
+
+### aeotec led strip
+zwave.bedroom_mirror:
+  friendly_name: Bedroom Mirror
+  hidden: true
+light.bedroom_mirror:
+  friendly_name: Bedroom Mirror
+  icon: mdi:file-presentation-box
+  # icon: mdi:image-filter-frames
+
+### aeotec multi 6 bulb
+zwave.bedroom_table_lamp:
+  friendly_name: Bedroom Table Lamp
+  hidden: true
+light.bedroom_table_lamp:
+  friendly_name: Bedroom Table Lamp
+  icon: mdi:lamp
+
+### hue
+light.bedroom:                  # room
+  icon: mdi:bed-empty
+light.bedroom_ceiling:          # group
+  icon: mdi:ceiling-light
+light.bed_lightstrip:           # bulb
+  icon: mdi:bed-empty
+light.bedroom_ceiling_1:        # bulb
+  hidden: true
+light.bedroom_ceiling_2:        # bulb
+  hidden: true
+light.bedroom_closet_ceiling:   # bulb
+  icon: mdi:ceiling-light
+  # icon: mdi:tshirt-crew
+
+
+#####################################################
+#################### DINING ROOM ####################
+#####################################################
+
+
+############### lights ###############
+
+### hue
+light.dining_room:                    # room
+  icon: mdi:silverware-clean
+light.dining_room_ceiling:            # group
+  icon: mdi:fan
+light.dining_room_ceiling_fan_1:      # bulb
+  hidden: true
+light.dining_room_ceiling_fan_2:      # bulb
+  hidden: true
+light.dining_room_ceiling_fan_3:      # bulb
+  hidden: true
+light.dining_room_ceiling_fan_4:      # bulb
+  hidden: true
+
+
+#################################################
+#################### HALLWAY ####################
+#################################################
+
+
+############### locks ###############
+
+### august front door lock 
+lock.front_door_lock:
+  friendly_name: Front Door Lock\
+# hidden
+zwave.front_door_lock:
+  friendly_name: Front Door Lock
+  hidden: true
+sensor.front_door_lock_access_control:
+  friendly_name: Front Door Lock Access Control
+  hidden: true
+sensor.front_door_lock_alarm_level:
+  friendly_name: Front Door Lock Alarm Level
+  hidden: true
+sensor.front_door_lock_alarm_type:
+  friendly_name: Front Door Lock Alarm Type
+  hidden: true
+
+
+############### buttons ###############
+
+### lightify osram 4x
+sensor.front_door_lightify_4x:
+  friendly_name: Front Door Buttons
+  device_class: battery
+  hidden: true
+
+
+############### lights ###############
+
+### hue
+light.hallway:              # room
+  icon: mdi:door-open
+light.hallway_ceiling:      # group
+  icon: mdi:ceiling-light
+light.hallway_ceiling_1:    # bulb
+  hidden: true
+light.hallway_ceiling_2:    # bulb
+  hidden: true
+
+
+#################################################
+#################### KITCHEN ####################
+#################################################
+
+
+############### lights ###############
+
+### light group for entire roomm
+light.kitchen_lights:
+  friendly_name: Kitchen Lights
+  icon: mdi:fridge-outline
+
+### switch platform
+light.kitchen_ceiling:
+  friendly_name: Kitchen Ceiling
+
+
+############### switches ###############
+
+### 3rd reality zigbee lightswitch
+switch.kitchen_light:
+  friendly_name: Kitchen Light Switch
+  icon: mdi:light-switch
+
+
+#####################################################
+#################### LIVING ROOM ####################
+#####################################################
+
+
+############### outlets ###############
+
+### samsung smartthings
+switch.living_room_air_conditioner:
+  friendly_name: Living Room Air Conditioner Outlet
+  device_class: outlets
+sensor.living_room_air_conditioner_power:
+  friendly_name: Living Room Air Conditioner Power
+  device_class: power
+
+### zooz power strip
+switch.desk_power_strip:
+  friendly_name: Desk Power Strip
+  device_class: outlet
+sensor.desk_power_strip_power:
+  friendly_name: Desk Power Strip Power
+  device_class: power
+switch.desk_amp:
+  friendly_name: Amp
+  device_class: outlet
+sensor.desk_amp_power:
+  friendly_name: Amp Power
+  device_class: power
+switch.desk_speakers:
+  friendly_name: Computer Speakers
+  device_class: outlet
+sensor.desk_speakers_power:
+  friendly_name: Computer Speakers Power
+  device_class: power
+switch.desk_right_monitor:
+  friendly_name: Right Monitor
+  device_class: outlet
+sensor.desk_right_monitor_power:
+  friendly_name: Right Monitor Power
+  device_class: power
+switch.desk_left_monitor:
+  friendly_name: Left Monitor
+  device_class: outlet
+sensor.desk_left_monitor_power:
+  friendly_name: Left Monitor Power
+  device_class: power
+switch.desk_center_monitor:
+  friendly_name: Center Monitor
+  device_class: outlet
+sensor.desk_center_monitor_power:
+  friendly_name: Center Monitor Power
+  device_class: power
+switch.desk_power_strip_usb_1:
+  friendly_name: Desk Power Strip USB1
+  device_class: outlet
+  icon: mdi:usb
+switch.desk_power_strip_usb_2:
+  friendly_name: Desk Power Strip USB2
+  device_class: outlet
+  icon: mdi:usb
+# hidden
+zwave.desk_power_strip:
+  friendly_name: Desk Power Strip
+  hidden: true
+sensor.desk_power_strip_alarm_level:
+  friendly_name: Desk Power Strip Alarm Level
+  hidden: true
+sensor.desk_power_strip_alarm_type:
+  friendly_name: Desk Power Strip Alarm Type
+  hidden: true
+sensor.desk_power_strip_energy:
+  friendly_name: Desk Power Strip Energy
+  hidden: true
+sensor.desk_amp_energy:
+  friendly_name: Amp Energy
+  hidden: true
+sensor.desk_right_monitor_energy:
+  friendly_name: Right Monitor Energy
+  hidden: true
+sensor.desk_speakers_energy:
+  friendly_name: Computer Speakers Energy
+  hidden: true
+sensor.desk_left_monitor_energy:
+  friendly_name: Left Monitor Energy
+  hidden: true
+sensor.desk_center_monitor_energy:
+  friendly_name: Center Monitor Energy
+  hidden: true
+
+
+############### buttons ###############
+
+### lightify osram 4x
+sensor.living_room_lightify_4x:
+  friendly_name: Living ROom Buttons
+  device_class: battery
+  hidden: true
+
+
+############### lights ###############
+
+### light group for entire roomm
+light.living_room_lights:
+  friendly_name: Living Room Lights
+  icon: mdi:theater
+
+### hue
+light.living_room:                    # room
+  icon: mdi:theater
+light.desk_bloom:                     # group
+  #icon: mdi:track-light
+  icon: mdi:spotlight
+light.desk_bloom_left:                # bulb
+  #icon: mdi:spotlight
+  icon: mdi:spotlight-beam
+light.desk_bloom_right:               # bulb
+  icon: mdi:spotlight-beam
+light.desk_colour_lights_ez:          # group
+  icon: mdi:gamepad-variant-outline
+light.desk_lightstrips:               # group
+  icon: mdi:led-strip
+light.desk_lightstrip:                # bulb
+  icon: mdi:keyboard-variant
+light.desk_pc_lightstrip:             # bulb
+  icon: mdi:desktop-tower
+light.desk_play:                      # group
+  icon: mdi:monitor
+light.desk_play_center:               # bulb
+  icon: mdi:test-tube-empty
+light.desk_play_left:                 # bulb
+  icon: mdi:test-tube-empty
+light.desk_play_right:                # bulb
+  icon: mdi:test-tube-empty
+light.living_room_lamps:              # group
+  icon: mdi:table
+light.living_room_left_lamp:          # bulb
+  icon: mdi:lamp
+light.living_room_right_lamp:         # bulb
+  icon: mdi:lamp
+light.workbench_lamp:                 # bulb
+  icon: mdi:desk-lamp
+
+### lifx
+light.living_room_beam:
+  friendly_name: LIFX Beam
+  icon: mdi:white-balance-iridescent
+light.living_room_table_lamp:
+  icon: mdi:lamp
+
+### nanoleaf
+light.living_room_nanoleaf:
+  friendly_name: Nanoleaf
+  #icon: mdi:hazard-lights
+  icon: mdi:details
+
+### zigbee sengled bulb
+light.living_room_floor_lamp:
+  icon: mdi:floor-lamp
+
+
+####
+####
+####
+####
+####
+####
+####
+####
+####
+####
+#### until the tuya problems are solved, commenting out all of this.
+#switch.ps01_outlet1:
+#  device_class: outlet
+#  friendly_name: Bedroom Apple TV Plug
+#  icon: mdi:apple
+#switch.ps01_outlet2:
+#  device_class: switch
+#  friendly_name: Bedroom TV LEDs
+#  icon: mdi:led-outline
+#switch.ps01_outlet3:
+#  device_class: outlet
+#  friendly_name: Bedroom Wax Melt Plug
+#  icon: mdi:candle
+#switch.ps01_usb:
+#  device_class: outlet
+#  friendly_name: Hallway Camera Plug
+#  icon: mdi:camcorder
+#switch.ps01_outlet4:
+#  device_class: outlet
+#  friendly_name: Bedroom Plug 4 (Unused)
+#  icon: mdi:power-socket-us
