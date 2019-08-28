@@ -1,0 +1,3 @@
+[submodule "home-assistant"]
+	path = home-assistant
+	url = https://github.com/freebsdgirl/home-assistant
