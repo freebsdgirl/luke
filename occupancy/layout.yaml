@@ -1,0 +1,110 @@
+---
+rooms:
+  bathroom:
+    motion:
+      - binary_sensor.bathroom_motion
+    neighbors:
+      - hallway
+  bedroom:
+    motion:
+      - binary_sensor.bedroom_motion
+    neighbors:
+      - master_bath
+      - hallway
+  entrance:
+    motion::
+      - binary_sensor.entrance_motion
+    neighbors:
+      - front_door
+  front_door:
+    motion:
+    neighbors:
+      - hallway
+      - living_room
+      - entrance
+  guest_bedroom:
+    motion:
+      - binary_sensor.guest_bedroom_motion
+    neighbors:
+      - hallway
+  hallway:
+    motion:
+      - binary_sensor.hallway_motion
+    neighbors:
+      - bedroom
+      - guest bedroom
+      - bathroom
+      - front_door
+      - living_room
+  kitchen:
+    motion:
+      - binary_sensor.kitchen_motion
+    neighbors:
+      - living_room
+      - stairs
+      - patio
+  living_room:
+    motion:
+      - binary_sensor.living_room_motion
+    neighbors:
+      - hallway
+      - front_door
+      - stairs
+      - kitchen
+      - patio
+  loft:
+    motion:
+      - binary_sensor.loft_motion
+    neighbors:
+      - stairs
+  master_bath:
+    motion:
+    neighbors:
+      - bedroom
+  patio:
+    motion:
+    neighbors:
+      - kitchen
+      - stairs
+      - patio
+  stairs:
+    motion:
+      - binary_sensor.stairs_motion
+    neighbors:
+      - living_room
+      - loft
+      - patio
+
+doors:
+  binary_sensor.bathroom_door:
+    acceleration: binary_sensor.bathroom_door_acceleration
+    rooms:
+      - bathroom
+      - hallway
+  binary_sensor.bedroom_door:
+    acceleration: binary_sensor.bedroom_door_acceleration
+    rooms:
+      - bedroom
+      - hallway
+  binary_sensor.front_door:
+    acceleration: binary_sensor.front_door_acceleration
+    rooms:
+      - entrance
+      - front_door
+  binary_sensor.guest_bedroom_door:
+    acceleration: binary_sensor.guest_bedroom_door_acceleration
+    rooms:
+      - guest_bedroom
+      - hallway
+  binary_sensor.master_bath_door:
+    acceleration: binary_sensor.master_bath_door_acceleration
+    rooms:
+      - bedroom
+      - master bath
+  binary_sensor.patio_door:
+    acceleration: binary_sensor.patio_door_acceleration
+    rooms:
+      - patio
+      - living_room
+        kitchen
+        stairs
